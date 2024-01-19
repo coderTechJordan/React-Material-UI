@@ -12,7 +12,8 @@ import Autocomplete from '../../components/Autocomplete/Autocomplete';
 import Menu from '../../components/Menu/Menu';
 import Typography from '../../components/Typography/Typography';
 import Icons from '../../components/Icons/Icons';
-import Tab from '../../components/Tab/Tab'; // Import the Tab component
+import Tab from '../../components/Tab/Tab';
+import Grid from '../../components/Grid/Grid';
 
 const HomePage: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,30 +50,30 @@ const HomePage: React.FC = () => {
   const suggestionList = ['Item 1', 'Item 2', 'Item 3'];
 
   return (
-    <div>
+    <Grid columns={3} gap="20px">
       <AppBar />
       <Drawer />
       <Table />
       <List items={items} />
-      
       {/* Updated usage of Tabs with Tab components */}
       <Tabs>
         <Tab label="Tab 1">Content for Tab 1</Tab>
         <Tab label="Tab 2">Content for Tab 2</Tab>
         <Tab label="Tab 3">Content for Tab 3</Tab>
       </Tabs>
-      
       <ExpansionPanels panels={panelOptions} />
       <Card {...cardData} />
       <Snackbar message={snackbarMessage} />
       {/* Other content for the home page */}
-
       <Autocomplete suggestions={suggestionList} />
-
       {/* Use the Menu component */}
       <button onClick={handleOpenMenu}>Open Menu</button>
-      <Menu isOpen={isMenuOpen} onClose={handleCloseMenu} options={menuOptions} onSelectOption={(option) => console.log(`Selected option: ${option}`)} />
-
+      <Menu
+        isOpen={isMenuOpen}
+        onClose={handleCloseMenu}
+        options={menuOptions}
+        onSelectOption={(option) => console.log(`Selected option: ${option}`)}
+      />
       {/* Use the Typography component */}
       <Typography variant="h1" color="#333">
         Heading 1
@@ -83,7 +84,6 @@ const HomePage: React.FC = () => {
       <Typography variant="caption" color="#777">
         A small caption.
       </Typography>
-
       {/* Use the Icons component with new icons */}
       <Icons name="coffee" size="medium" color="#333" />
       <Icons name="user" size="large" color="#555" />
@@ -95,7 +95,7 @@ const HomePage: React.FC = () => {
       <Icons name="cog" size="medium" color="#808080" /> {/* Cog icon */}
       <Icons name="home" size="medium" color="#4169E1" /> {/* Home icon */}
       <Icons name="search" size="medium" color="#FF4500" /> {/* Search icon */}
-    </div>
+    </Grid>
   );
 };
 

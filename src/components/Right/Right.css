@@ -1,0 +1,16 @@
+/* Right.css */
+.Right {
+  height: 625px;
+  width: 10.41%;
+  background-color: #03a66a;
+  display: inline-block;
+}
+
+/* Media query for responsive design */
+@media only screen and (max-width: 768px) {
+  .Right {
+    width: 100%; /* Adjust width for smaller screens */
+    height: auto; /* Adjust height as needed for smaller screens */
+    display: block; /* Change to block for full width on smaller screens */
+  }
+}

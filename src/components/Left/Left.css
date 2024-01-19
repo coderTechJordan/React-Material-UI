@@ -1,0 +1,16 @@
+/* Left.css */
+.Left {
+  height: 625px;
+  width: 20.83%;
+  background-color: #03a66a;
+  display: inline-block;
+}
+
+/* Media query for responsive design */
+@media only screen and (max-width: 768px) {
+  .Left {
+    width: 100%; /* Adjust width for smaller screens */
+    height: auto; /* Adjust height as needed for smaller screens */
+    display: block; /* Change to block for full width on smaller screens */
+  }
+}

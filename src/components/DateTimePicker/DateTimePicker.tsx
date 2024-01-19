@@ -35,8 +35,20 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({ selectedDate, onSelectD
         <div>
           {/* Render your date and time picker UI here */}
           {/* Example: A date picker library or a custom date and time input */}
-          <input type="date" value={selectedDate?.toISOString().split('T')[0]} onChange={(e) => handleDateChange(new Date(e.target.value))} />
-          <input type="time" value={selectedDate?.toISOString().split('T')[1].slice(0, 5)} onChange={(e) => handleDateChange(new Date(`${selectedDate?.toISOString().split('T')[0]}T${e.target.value}`))} />
+          <input
+            type="date"
+            value={selectedDate?.toISOString().split('T')[0]}
+            onChange={(e) => handleDateChange(new Date(e.target.value))}
+          />
+          <input
+            type="time"
+            value={selectedDate?.toISOString().split('T')[1].slice(0, 5)}
+            onChange={(e) =>
+              handleDateChange(
+                new Date(`${selectedDate?.toISOString().split('T')[0]}T${e.target.value}`),
+              )
+            }
+          />
 
           <button onClick={handleClosePicker}>Close Picker</button>
         </div>

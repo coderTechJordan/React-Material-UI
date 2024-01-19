@@ -1,17 +1,19 @@
 // Header.tsx
 import React from 'react';
-import styles from './Header.module.css';
+import Navigation from '../Navigation/Navigation';
 
 interface HeaderProps {
-  // your component props here
+  routes: { path: string; label: string }[];
 }
 
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<HeaderProps> = ({ routes }) => {
   return (
-    <header className={styles.header}>
-      {/* your header component content */}
+    <header className={'Header'}>
+      {/* Pass the routes prop to Navigation */}
+      <Navigation routes={routes} />
+      {/* Other content in your header */}
     </header>
   );
 };
 
-export default Header;  // Add this export statement
+export default Header;

@@ -6,14 +6,14 @@ interface AppBarProps {
   // Add any necessary props
 }
 
-const AppBar: React.FC<AppBarProps> = ({ /* props */ }) => {
+const AppBar: React.FC<AppBarProps> = (
+  {
+    /* props */
+  },
+) => {
   // AppBar implementation
 
-  return (
-    <div>
-      {/* Your app bar content */}
-    </div>
-  );
+  return <div>{/* Your app bar content */}</div>;
 };
 
 export default AppBar;

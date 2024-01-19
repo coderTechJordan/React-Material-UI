@@ -1,0 +1,68 @@
+/* Navigation.css */
+.container {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  min-height: 2.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.item,
+.last-item {
+  color: #ebebeb;
+  text-decoration: none;
+}
+
+.item {
+  margin-right: 1rem;
+}
+
+.last-item {
+  margin-left: auto; /* Push to the opposite side */
+  margin-right: 2rem; /* Adjust the right margin to offset the last item */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  display: inline-block;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+/* Media query for responsive design */
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .item,
+  .last-item {
+    margin: 0.5rem 0;
+  }
+
+  li {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

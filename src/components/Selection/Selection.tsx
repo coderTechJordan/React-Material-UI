@@ -26,7 +26,10 @@ const Selection: React.FC<SelectionProps> = ({ choices }) => {
           <li
             key={choice}
             onClick={() => handleItemSelect(choice)}
-            style={{ cursor: 'pointer', textDecoration: selectedItems.includes(choice) ? 'underline' : 'none' }}
+            style={{
+              cursor: 'pointer',
+              textDecoration: selectedItems.includes(choice) ? 'underline' : 'none',
+            }}
           >
             {choice}
           </li>

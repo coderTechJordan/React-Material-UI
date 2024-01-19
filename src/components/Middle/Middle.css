@@ -1,0 +1,14 @@
+/* Middle.css */
+.Middle {
+  height: 625px;
+  width: 68.75%;
+  background-color: #bbbf90;
+  display: inline-block;
+}
+
+/* Media query for responsive design */
+@media only screen and (max-width: 768px) {
+  .Middle {
+    width: 100%; /* Set width to 100% on smaller screens */
+  }
+}

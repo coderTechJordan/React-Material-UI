@@ -25,9 +25,5 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // You can fetch the theme dynamically or use a theme provider configuration here
   const currentTheme: Theme = defaultTheme;
 
-  return (
-    <ThemeContext.Provider value={currentTheme}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={currentTheme}>{children}</ThemeContext.Provider>;
 };

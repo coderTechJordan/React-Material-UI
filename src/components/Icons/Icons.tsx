@@ -26,9 +26,8 @@ interface IconProps {
     | 'times'
     | 'cog'
     | 'home'
-    | 'search'
-    // Add more icon names as needed
-  ;
+    | 'search';
+  // Add more icon names as needed
   size?: 'small' | 'medium' | 'large';
   color?: string;
 }
