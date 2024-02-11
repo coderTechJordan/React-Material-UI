@@ -1,5 +1,6 @@
 // components/Middle/Middle.tsx
 import React, { ReactNode } from 'react';
+import './Middle.css';
 
 interface MiddleProps {
   children: ReactNode;

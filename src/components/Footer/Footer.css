@@ -1,8 +1,11 @@
 /* Footer.css */
 .Footer {
-  height: 200px;
+  height: auto; /* Adjust height based on content */
   width: 100%;
   background-color: #025059;
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
 }
 
 /* Media query for responsive design */

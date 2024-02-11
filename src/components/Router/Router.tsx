@@ -1,33 +1,39 @@
-// AppRouter.tsx
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from '../../pages/HomePage/HomePage';
-import AboutPage from '../../pages/AboutPage/AboutPage';
-import FormPage from '../../pages/FormPage/FormPage';
-import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
-import ConfirmationPage from '../../pages/ConfirmationPage/ConfirmationPage';
-import SignUp from '../../pages/SignUp/SignUp';
-import SignIn from '../../pages/SignIn/SignIn';
-import Navigation from '../Navigation/Navigation';
+import LazyHomePage from '../../pages/HomePage/HomePage';
+import LazyAboutPage from '../../pages/AboutPage/AboutPage';
+import LazyFormPage from '../../pages/FormPage/FormPage';
+import LazyConfirmationPage from '../../pages/ConfirmationPage/ConfirmationPage';
+import LazySignUp from '../../pages/SignUp/SignUp';
+import LazySignIn from '../../pages/SignIn/SignIn';
+import LazyNotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
+
+const queryClient = new QueryClient();
+
+export const routesData = [
+  { path: '/index.html', label: 'Home', element: <LazyHomePage /> },
+  { path: '/about', label: 'About', element: <LazyAboutPage /> },
+  { path: '/form', label: 'Form', element: <LazyFormPage /> },
+  { path: '/confirmed', label: 'Confirmed', element: <LazyConfirmationPage /> },
+  { path: '/signup', label: 'SignUp', element: <LazySignUp /> },
+  { path: '/signin', label: 'SignIn', element: <LazySignIn /> },
+  { path: '*', label: 'Not Found', element: <LazyNotFoundPage /> },
+];
 
 const AppRouter: React.FC = () => {
-  // Map the route data to Route components
-  const routesData = [
-    { path: '/', label: 'Home', element: <HomePage /> },
-    { path: '/about', label: 'About', element: <AboutPage /> },
-    { path: '/form', label: 'Form', element: <FormPage /> },
-    { path: '/confirmed', label: 'Confirmed', element: <ConfirmationPage /> },
-    { path: '/signup', label: 'SignUp', element: <SignUp /> },
-    { path: '/signin', label: 'SignIn', element: <SignIn /> },
-    { path: '*', label: 'Not Found', element: <NotFoundPage /> },
-  ];
-
   return (
-    <Routes>
-      {routesData.map(({ path, element }, index) => (
-        <Route key={path} path={path} element={element} />
-      ))}
-    </Routes>
+    <QueryClientProvider client={queryClient}>
+      <Routes>
+        {routesData.map(({ path, element }, index) => (
+          <Route
+            key={path}
+            path={path}
+            element={<React.Suspense fallback={<div>Loading...</div>}>{element}</React.Suspense>}
+          />
+        ))}
+      </Routes>
+    </QueryClientProvider>
   );
 };
 

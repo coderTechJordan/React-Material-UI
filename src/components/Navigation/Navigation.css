@@ -7,12 +7,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  width: 100%; /* Take full width of parent container */
 }
 
 .item,
 .last-item {
   color: #ebebeb;
   text-decoration: none;
+  flex-grow: 1; /* Fill available space */
 }
 
 .item {
@@ -21,7 +23,7 @@
 
 .last-item {
   margin-left: auto; /* Push to the opposite side */
-  margin-right: 2rem; /* Adjust the right margin to offset the last item */
+  margin-right: 0; /* Remove the right margin */
 }
 
 ul {

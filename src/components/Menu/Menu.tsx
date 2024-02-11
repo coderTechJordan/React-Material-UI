@@ -1,5 +1,6 @@
 // components/Menu.tsx
 import React from 'react';
+import './Menu.css';
 
 interface MenuProps {
   isOpen: boolean;

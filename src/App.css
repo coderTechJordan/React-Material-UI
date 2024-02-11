@@ -5,61 +5,7 @@ body {
   padding: 0;
 }
 
-.Wrap {
+/* .Wrap {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.Header {
-  width: 100%;
-  height: 130px;
-  background-color: #038c5a;
-}
-
-.WrapMiddle {
-  width: 100%;
-  font-size: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.Left {
-  height: 625px;
-  width: 100%;
-  max-width: 250px; /* Adjust as needed for your design */
-  background-color: #03a66a;
-}
-
-.Middle {
-  height: 625px;
-  flex-grow: 1;
-  background-color: #bbbf90;
-}
-
-.Right {
-  height: 625px;
-  width: 100%;
-  max-width: 250px; /* Adjust as needed for your design */
-  background-color: #03a66a;
-}
-
-.Footer {
-  height: 200px;
-  width: 100%;
-  background-color: #025059;
-}
-
-/* Add media queries for responsiveness */
-@media (min-width: 768px) {
-  .Left {
-    width: 20.83%;
-  }
-
-  .Middle {
-    width: 68.75%;
-  }
-
-  .Right {
-    width: 10.41%;
-  }
-}
+} */

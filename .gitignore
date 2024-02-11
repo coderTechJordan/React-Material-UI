@@ -5,11 +5,32 @@
 /.pnp
 .pnp.js
 
+# Ignore package lock file
+package-lock.json
+
 # testing
 /coverage
 
 # production
 /build
+
+# Ignore any compiled TypeScript files or JavaScript files
+*.js
+*.js.map
+
+# Ignore any compiled CSS files
+*.css
+
+# Ignore any temporary files
+*.tmp
+
+# Ignore log files
+*.log
+
+# Ignore IDE or editor specific files
+.vscode/
+.idea/
+
 
 # misc
 .DS_Store

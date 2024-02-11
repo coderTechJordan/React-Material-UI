@@ -1,4 +1,8 @@
+// SignUp.tsx
+
 import * as React from 'react';
+import { useMutation, useQueryClient } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -6,12 +10,14 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import Grid from '../../components/Grid/Grid';
+import { saveUser } from '../../api';
+import { User } from '../../model/user';
 
 const CustomTextField = styled(TextField)({
   // Your custom styles for TextField
@@ -22,16 +28,38 @@ const CustomButton = styled(Button)({
   // Your custom styles for Button
 });
 
-// ... (define other custom styled components similarly)
-
 function SignUp() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
+  const mutation = useMutation<unknown, Error, User, unknown>(
+    (userData: User) => saveUser(userData),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries('users');
+        navigate('/signin');
+      },
+    },
+  );
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    const userData: User = {
+      firstName: data.get('firstName') as string,
+      lastName: data.get('lastName') as string,
+      email: data.get('email') as string,
+      password: data.get('password') as string,
+      username: data.get('username') as string,
+    };
+
+    try {
+      await mutation.mutateAsync(userData);
+    } catch (error) {
+      // Handle error, e.g., display an error message
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
@@ -76,6 +104,17 @@ function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
+                {/* Add the new username field */}
+                <CustomTextField
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="username"
+                />
+              </Grid>
+              <Grid item xs={12}>
                 <CustomTextField
                   required
                   fullWidth
@@ -108,14 +147,13 @@ function SignUp() {
             </CustomButton>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signin" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        {/* Copyright component goes here */}
       </Container>
     </ThemeProvider>
   );

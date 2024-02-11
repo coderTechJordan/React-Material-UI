@@ -1,6 +1,7 @@
 // Header.tsx
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
+import './Header.css';
 
 interface HeaderProps {
   routes: { path: string; label: string }[];

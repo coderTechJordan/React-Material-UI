@@ -1,19 +1,30 @@
 // Navigation.tsx
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Navigation.css'; // Import the regular CSS file
+import { NavLink } from 'react-router-dom';
+import './Navigation.css';
 
 interface NavigationProps {
   routes: { path: string; label: string }[];
 }
 
 const Navigation: React.FC<NavigationProps> = ({ routes }) => {
+  // Filter out the NotFoundPage and ConfirmedPage routes
+  const filteredRoutes = routes.filter(
+    (route) => route.path !== '*' && route.path !== '/confirmed',
+  );
+
   return (
     <nav className="container">
       <ul>
-        {routes.map(({ path, label }, index) => (
-          <li key={index} className={index === routes.length - 1 ? 'last-item' : 'item'}>
-            <Link to={path}>{label}</Link>
+        {filteredRoutes.map(({ path, label }, index) => (
+          <li key={index} className={index === filteredRoutes.length - 1 ? 'last-item' : 'item'}>
+            {/* Use dynamicProps to conditionally apply activeClassName */}
+            <NavLink
+              to={path}
+              {...(index === filteredRoutes.length - 1 ? { activeClassName: 'active-link' } : {})}
+            >
+              {label}
+            </NavLink>
           </li>
         ))}
       </ul>
