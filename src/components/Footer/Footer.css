@@ -1,10 +1,8 @@
 /* Footer.css */
 .Footer {
-  height: auto; /* Adjust height based on content */
   width: 100%;
   background-color: #025059;
-  display: inline-block;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
 }
 

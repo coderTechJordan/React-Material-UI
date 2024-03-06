@@ -1,10 +1,9 @@
 /* Right.css */
 .Right {
-  height: auto;
-  width: 100%;
+  width: 15%;
   background-color: #03a66a;
-  display: inline-block;
-  padding: 10px;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Media query for responsive design */

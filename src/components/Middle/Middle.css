@@ -1,10 +1,10 @@
 /* Middle.css */
 .Middle {
-  height: auto; /* Adjust height based on content */
-  width: 100%;
+  flex-grow: 1; /* Takes available space */
+  width: calc(100% - 30%); /* Subtracting left and right widths */
   background-color: #bbbf90;
-  flex-grow: 1;
-  display: inline-block;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Media query for responsive design */

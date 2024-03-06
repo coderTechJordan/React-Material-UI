@@ -14,17 +14,21 @@ import './Layout.css';
 const Layout: React.FC = () => {
   return (
     <BrowserRouter>
-      <Header routes={routesData} />
-      <Left />
+      <div className="Header">
+        <Header routes={routesData} />
+      </div>
       <div className="WrapMiddle">
+        <Left />
         <Middle>
           <QueryClientProvider client={queryClient}>
             <AppRouter />
           </QueryClientProvider>
         </Middle>
+        <Right />
       </div>
-      <Right />
-      <Footer />
+      <div className="Footer">
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 };

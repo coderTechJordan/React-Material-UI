@@ -1,15 +1,17 @@
-/* Header.css */
 .Header {
   width: 100%;
-  height: auto; /* Adjust height based on content */
-  min-height: auto; /* Set a minimum height to prevent it from collapsing */
+  padding: 20px 0;
   background-color: #038c5a;
-  padding: 10px;
+  display: flex;
+  justify-content: space-between; /* Align nav items on both ends */
+  align-items: center;
+  flex-wrap: wrap; /* Wrap the items if space is not enough */
 }
 
 /* Media query for responsive design */
 @media only screen and (max-width: 600px) {
   .Header {
-    height: auto; /* Adjust height as needed for smaller screens */
+    flex-direction: column; /* Stack items vertically on small screens */
+    padding: 10px; /* Consistent padding */
   }
 }
