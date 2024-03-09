@@ -39,138 +39,36 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However, we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## TODO:
+## Running and Deploying with Docker
 
-# File Structure
-.
-├── App.css
-├── App.test.tsx
-├── App.tsx
-├── components
-│   ├── AppBar
-│   │   ├── AppBar.css
-│   │   └── AppBar.tsx
-│   ├── Autocomplete
-│   │   ├── Autocomplete.css
-│   │   └── Autocomplete.tsx
-│   ├── Button
-│   │   ├── Button.module.css
-│   │   └── Button.tsx
-│   ├── Card
-│   │   ├── Card.css
-│   │   └── Card.tsx
-│   ├── Chip
-│   │   ├── Chip.css
-│   │   └── Chip.tsx
-│   ├── DateTimePicker
-│   │   ├── DateTimePicker.css
-│   │   └── DateTimePicker.tsx
-│   ├── Dialog
-│   │   ├── Dialog.css
-│   │   └── Dialog.tsx
-│   ├── Drawer
-│   │   ├── Drawer.css
-│   │   └── Drawer.tsx
-│   ├── ExpansionPanels
-│   │   ├── ExpansionPanels.css
-│   │   └── ExpansionPanels.tsx
-│   ├── Header
-│   │   ├── Header.module.css
-│   │   └── Header.tsx
-│   ├── Icons
-│   │   ├── Icons.css
-│   │   └── Icons.tsx
-│   ├── List
-│   │   ├── List.css
-│   │   └── List.tsx
-│   ├── Menu
-│   │   ├── Menu.css
-│   │   └── Menu.tsx
-│   ├── Selection
-│   │   ├── Selection.css
-│   │   └── Selection.tsx
-│   ├── Snackbar
-│   │   ├── Snackbar.css
-│   │   └── Snackbar.tsx
-│   ├── Tab
-│   │   ├── Tab.css
-│   │   └── Tab.tsx
-│   ├── Table
-│   │   ├── Table.css
-│   │   └── Table.tsx
-│   ├── Tabs
-│   │   ├── Tabs.css
-│   │   └── Tabs.tsx
-│   ├── TextInput
-│   │   ├── TextInput.css
-│   │   └── TextInput.tsx
-│   └── Typography
-│       ├── Typography.css
-│       └── Typography.tsx
-├── index.css
-├── index.tsx
-├── logo.svg
-├── pages
-│   ├── AboutPage
-│   │   ├── AboutPage.css
-│   │   └── AboutPage.tsx
-│   ├── FormPage
-│   │   ├── FormPage.css
-│   │   └── FormPage.tsx
-│   └── HomePage
-│       ├── HomePage.css
-│       └── HomePage.tsx
-├── react-app-env.d.ts
-├── reportWebVitals.ts
-├── setupTests.ts
-├── styles
-│   ├── Styles.css
-│   └── Styles.ts
-├── themes
-│   ├── ThemeContext.css
-│   └── ThemeContext.tsx
-└── utils
-    └── helperFunctions.tsx
+### Building the Docker Image
+
+To build the Docker image for your application, run the following command in your project directory:
+
+```bash
+
+docker build -t my-react-app .
+
+docker run -p 3000:3000 my-react-app
+```
+
+This README file now entirely adheres to Markdown formatting, including all instructions and sections you requested. Adjust and expand as needed for your specific project details and requirements.
+
 # Components
+
 components: Contains reusable React components. Each component has its own directory with a TypeScript file (.tsx) and a CSS module (.module.css) for styling.
-.
-├── components
-│   ├── Button
-│   │   ├── Button.module.css
-│   │   └── Button.tsx
-│   └── Header
-│       ├── Header.module.css
-│       └── Header.tsx
+└── Header.tsx
 
 # Pages
+
 pages: Contains page-level components, organized into subdirectories like AboutPage and HomePage. Each page component has its own directory with a TypeScript file (.tsx) and a CSS file (.css).
 
-├── pages
-│   ├── AboutPage
-│   │   ├── AboutPage.css
-│   │   └── AboutPage.tsx
-│   └── HomePage
-│       ├── HomePage.css
-│       └── HomePage.tsx
-
 # Utils
+
 utils: Contains utility functions or helper functions. The helperFunctions.tsx file seems to be an example of such a utility.
 
-├── utils
-│   └── helperFunctions.tsx
-
-├── App.css
-├── App.test.tsx
-├── App.tsx
-├── index.css
-├── index.tsx
-├── logo.svg
-├── react-app-env.d.ts
-├── reportWebVitals.ts
-├── setupTests.ts
-
-
 # Other files
+
 Other files: You have standard files like App.css, App.test.tsx, App.tsx, index.css, index.tsx, etc. These files are part of the typical structure created by Create React App.
 
 ## Learn More

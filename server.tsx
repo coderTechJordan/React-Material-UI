@@ -1,21 +1,12 @@
 import express from 'express';
 import path from 'path';
-import cors from 'cors';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const cors = require('cors');
-
-app.use(cors());
-// // Use cors middleware with specific origin
-// app.use(
-//   cors({
-//     origin: 'http://172.27.46.175:3000', // Update with your actual frontend origin
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true,
-//     optionsSuccessStatus: 204,
-//   }),
-// );
 
 app.use(express.static(path.join(__dirname, 'build')));
 
